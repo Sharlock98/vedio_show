@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="vedio_show:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/vedio_show_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="vedio_show/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="vedio_show" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/WEB-INF/lib/JStl-1.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/WEB-INF/lib/druid-1.1.5.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/WEB-INF/lib/log4j-1.2.17.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/WEB-INF/lib/slf4j-api-1.7.25.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/WEB-INF/lib/commons-dbutils-1.7.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/WEB-INF/lib/slf4j-log4j12-1.7.25.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/WEB-INF/lib/mysql-connector-java-6.0.5.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
