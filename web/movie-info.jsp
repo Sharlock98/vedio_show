@@ -21,6 +21,8 @@
 
 <%
     List<Video> videos=(List<Video>)request.getAttribute("list");
+    session=request.getSession();
+    session.setAttribute("videos",videos);
 %>
 <div id="mv-info-div">
     <ul id="mv-info-ul">
@@ -48,7 +50,7 @@
                         </a>
                         <br />
                         <div class="online-button">
-                            <a target="_blank" class="btn btn-success btn-block" href='<%=videos.get(0).getPianyuan()%>'>立即播放</a>
+                            <a target="_blank" class="btn btn-success btn-block" href='/play'>立即播放</a>
                         </div>
                         <%
                             session=request.getSession();

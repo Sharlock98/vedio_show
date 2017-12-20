@@ -1,4 +1,5 @@
-<%--
+<%@ page import="entity.Video" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: ASUS
   Date: 2017/12/19
@@ -15,6 +16,9 @@
     <link href="css/movie-info.css" rel="stylesheet">
 </head>
 <body>
+<%
+    List<Video> videos=(List<Video>)request.getAttribute("list");
+%>
 <div id="mv-info-div">
     <ul id="mv-info-ul">
         <li id="mv-info-li" ><a href="demo.jsp"><div></div>首页</a></li>
@@ -31,17 +35,20 @@
     <div class="container-fluid" >
 
         <div class="row" >
-
+            <%
+                String time=videos.get(0).getShijian();
+                String year=time.substring(0,time.indexOf("-"));
+            %>
             <div class="col-md-12">
-                <h1 class="movie-title">三毛从军记 <span class="movie-year">(1992)</span></h1>
+                <h1 class="movie-title"><%=videos.get(0).getMingcheng()%><span class="movie-year">(<%=year%>)</span></h1>
             </div>
 
             <div class="col-md-12" style="margin-bottom: 5px">
                 <div class="row" style="height: 100%">
                     <div class="col-md-9" style="padding-right:5px;">
 
-                        <iframe style="width: 100%; height:450px;"
-                                src="http://api.tianxianle.com/jx/dapi.php?id=o6t1naKhqaajl3BumJhlaGQO0O0O">
+                        <iframe style="width: 100%; height:500px;" scrolling="no"
+                                src="<%=videos.get(0).getPianyuan()%>">
                         </iframe>
                     </div>
 
@@ -78,10 +85,6 @@
                                 <img class="play-png2" src="img/play-png.png">
                             </li>
                         </ul>
-
-
-
-
                     </div>
                 </div>
             </div>
