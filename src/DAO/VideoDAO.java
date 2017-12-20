@@ -30,6 +30,7 @@ public class VideoDAO {
                 video.setShijian(resultSet.getString("shijian"));
                 video.setJieshao(resultSet.getString("jieshao"));
                 video.setImage(resultSet.getString("image"));
+                video.setPianyuan(resultSet.getString("pianyuan"));
                 videos.add(video);
             }
             resultSet.close();

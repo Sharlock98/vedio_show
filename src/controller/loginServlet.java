@@ -26,19 +26,15 @@ public class loginServlet extends javax.servlet.http.HttpServlet {
         Boolean islogin=userService.login(username,password);
         HttpSession session=request.getSession();
         session.setAttribute("username",username);
+        session.getAttribute("username");
 //        Cookie cookie=new Cookie("username",username);
 //        cookie.setMaxAge(60*60*24*365);
 //        response.addCookie(cookie);
 
         if (islogin){
-            if (username.equals("admin")){
-//                request.getRequestDispatcher("/demo.jsp").forward(request, response);
-                login(request,response);
-            }else
-//            request.getRequestDispatcher("/demo.jsp").forward(request, response);
-                login(request,response);
+            login(request,response);
         }else {
-            request.getRequestDispatcher("/work-login.jsp").forward(request, response);
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
             login(request,response);
         }
     }
@@ -52,10 +48,12 @@ public class loginServlet extends javax.servlet.http.HttpServlet {
         String msg = "";
         if(islogin) {
             msg="ok";
+            if(username.equals("admin")){
+                msg="ojbk";
+            }
         }else {
-            msg = "error";
+            msg="error";
         }
         out.print(msg);
     }
-
 }

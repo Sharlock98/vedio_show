@@ -1,5 +1,6 @@
 <%@ page import="entity.Video" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="Service.VideoService" %><%--
   Created by IntelliJ IDEA.
   User: ASUS
   Date: 2017/12/19
@@ -44,7 +45,7 @@
             </div>
 
             <div class="col-md-12" style="margin-bottom: 5px">
-                <div class="row" style="height: 100%">
+                <div class="row" style="height: 100%;">
                     <div class="col-md-9" style="padding-right:5px;">
 
                         <iframe style="width: 100%; height:500px;" scrolling="no"
@@ -55,35 +56,58 @@
                     <div class="col-md-3">
                         <ul class="play-ul">
                             <h6>推荐列表</h6>
-                            <li class="play-li"><img class="play-img" src="img/dianying1.jpg">
-                                <p class="play-p">小埋</p><p class="play-p2">豆瓣:</p><p class="play-p3">6.3</p>
+                            <%
+                                VideoService videoService=new VideoService();
+                                List<Video> videoList=videoService.selectMovieInfo(videos.get(0).getMingcheng());
+                                List<Video> videoList1=videoService.selectDSJInfo(videos.get(0).getMingcheng());
+                                List<Video> videoList2=videoService.selectCarttonInfo(videos.get(0).getMingcheng());
+                                if (videoList.size()!=0){
+                                    List<Video> movies=videoService.selectMovie();
+                                    for (int m=0;m<8;m++){
+                                        int x=(int)(Math.random()*50);
+                            %>
+                            <a href=""><li class="play-li"><img class="play-img" src="<%=movies.get(x).getImage()%>">
+                                <p class="play-p"><%=movies.get(x).getMingcheng()%></p><p class="play-p2">豆瓣:</p><p class="play-p3">6.3</p>
+                                <img class="play-png2" src="img/play-png.png">
+                            </li></a>
+                            <hr />
+                            <%
+                                    }
+                                    return;
+                                }
+                            %>
+                            <%
+                                if (videoList1.size()!=0){
+                                    List<Video> dianshuju=videoService.selectDSJ();
+                                    for (int m=0;m<8;m++){
+                                        int x=(int)(Math.random()*50);
+                                        %>
+                            <li class="play-li"><img class="play-img" src="<%=dianshuju.get(x).getImage()%>">
+                            <p class="play-p"><%=dianshuju.get(x).getMingcheng()%></p><p class="play-p2">豆瓣:</p><p class="play-p3">6.3</p>
+                            <img class="play-png2" src="img/play-png.png">
+                            </li>
+                            <hr />
+                            <%
+                                    }
+                                    return;
+                                }
+                            %>
+                            <%
+                                if (videoList2.size()!=0){
+                                    List<Video> cartoon=videoService.selectCT();
+                                    for (int m=0;m<8;m++){
+                                        int x=(int)(Math.random()*50);
+                            %>
+                            <li class="play-li"><img class="play-img" src="<%=cartoon.get(x).getImage()%>">
+                                <p class="play-p"><%=cartoon.get(x).getMingcheng()%></p><p class="play-p2">豆瓣:</p><p class="play-p3">6.3</p>
                                 <img class="play-png2" src="img/play-png.png">
                             </li>
                             <hr />
-                            <li class="play-li"><img class="play-img" src="img/dianying1.jpg">
-                                <p class="play-p">火影忍者</p><p class="play-p2">豆瓣:</p><p class="play-p3">6.3</p>
-                                <img class="play-png2" src="img/play-png.png">
-                            </li>
-                            <hr />
-                            <li class="play-li"><img class="play-img" src="img/dianying1.jpg">
-                                <p class="play-p">海贼王</p><p class="play-p2">豆瓣:</p><p class="play-p3">6.3</p>
-                                <img class="play-png2" src="img/play-png.png">
-                            </li>
-                            <hr />
-                            <li class="play-li"><img class="play-img" src="img/dianying1.jpg">
-                                <p class="play-p">刀剑神域</p><p class="play-p2">豆瓣:</p><p class="play-p3">6.3</p>
-                                <img class="play-png2" src="img/play-png.png">
-                            </li>
-                            <hr />
-                            <li class="play-li"><img class="play-img" src="img/dianying1.jpg">
-                                <p class="play-p">一拳超人</p><p class="play-p2">豆瓣:</p><p class="play-p3">6.3</p>
-                                <img class="play-png2" src="img/play-png.png">
-                            </li>
-                            <hr />
-                            <li class="play-li"><img class="play-img" src="img/dianying1.jpg">
-                                <p class="play-p">asdaassasa</p><p class="play-p2">豆瓣:</p><p class="play-p3">6.3</p>
-                                <img class="play-png2" src="img/play-png.png">
-                            </li>
+                            <%
+                                    }
+                                    return;
+                                }
+                            %>
                         </ul>
                     </div>
                 </div>

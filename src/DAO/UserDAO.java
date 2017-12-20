@@ -84,12 +84,8 @@ public class UserDAO {
         return false;
     }
     public static void main(String[] args){
-        UserDAO userDao=new UserDAO();
-        if (userDao.selectUser("lll")){
-            System.out.println("true");
-        }else {
-            System.out.println("false");
-        }
+        int x=(int)(Math.random()*10);
+        System.out.println(x);
 
     }
 }

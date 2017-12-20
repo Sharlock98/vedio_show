@@ -42,6 +42,7 @@
             <!--</button>-->
             <!--<a class="navbar-brand" href="demo.html"></a>-->
             <form method="post" action="search">
+                <img src="img/logo2.png">
             <input class="input-ss" type="search" name="search" placeholder="站内搜索">
             </form>
         </div>
@@ -70,7 +71,7 @@
                             <h6 style="text-align: left;text-indent: 1.5em">成为本站用户后：</h6>
                             <img src="img/login-gif.gif" style="height: 150px;width: 230px;margin-left: 7px">
                             <br /><br />
-                            <input type="button" id="login-bu" onclick="location.href='work-login.jsp'" value="登陆">
+                            <input type="button" id="login-bu" onclick="location.href='login.jsp'" value="登陆">
                             <h6>首次使用？<a id="login-zhuce" href="register.jsp">点我注册</a></h6>
                         </div>
 
@@ -84,7 +85,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=(String)session.getAttribute("username")%><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#" onclick="location.href='/collection'">我的收藏</a></li>
-                            <li><a href="#" onclick="location.href='work-login.jsp'">切换用户</a></li>
+                            <li><a href="#" onclick="location.href='login.jsp'">切换用户</a></li>
                             <li><a href="#" onclick="location.href='/remove'">注销</a></li>
 
                         </ul>
