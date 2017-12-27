@@ -36,16 +36,19 @@
         <li id="more-li" ><a href="demo.jsp"><div></div>首页</a></li>
     </ul>
 </div>
+<div style="width: 100%;text-align: center">
 <%
     if (result.size()==0){
         %>
-        <img src="img/dianying1.jpg" >
+        <img src="img/sousuo-No.png" >
 <%
     }
 %>
+</div>
 <%
     if (result.size()!=0){
         %>
+
 <div>
     <section style="margin-top: 19px">
         <div class="container" style="width: 65%">

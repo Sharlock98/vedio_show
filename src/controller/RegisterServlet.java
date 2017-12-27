@@ -22,7 +22,7 @@ public class RegisterServlet extends HttpServlet {
         String passwordAgain=request.getParameter("passwordAgain");
         psd(request,response);
         //密码和确认密码不一致则不进行数据库操作
-        if (!password.equals(passwordAgain)){
+        if (!password.equals(passwordAgain)||name.equals("")||password.equals("")||passwordAgain.equals("")){
             return;
         }
         UserService userService=new UserService();
@@ -31,12 +31,13 @@ public class RegisterServlet extends HttpServlet {
 
     }
     public void psd(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        String name=request.getParameter("name");
         String password=request.getParameter("password");
         String passwordAgain=request.getParameter("passwordAgain");
         Boolean same=false;
         String msg = "";
         PrintWriter out = response.getWriter();
-        if (password.equals(passwordAgain)&&!password.equals("")&&!passwordAgain.equals(""))
+        if (password.equals(passwordAgain)&&!name.equals("")&&!password.equals("")&&!passwordAgain.equals(""))
             same=true;
         if (same==true){
             msg="ok";

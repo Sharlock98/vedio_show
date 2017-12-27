@@ -40,6 +40,28 @@ public class VideoDAO {
             e.printStackTrace();
         }
     }
+    private void insert(Video video,String sql){
+        Connection connection = dbhelper.getInstance();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, video.getMingcheng());
+            preparedStatement.setString(2, video.getDaoyan());
+            preparedStatement.setString(3, video.getZhuyan());
+            preparedStatement.setString(4, video.getLeixing());
+            preparedStatement.setString(5, video.getGuojia());
+            preparedStatement.setString(6, video.getShijian());
+            preparedStatement.setString(7, video.getJieshao());
+            preparedStatement.setString(8, video.getImage());
+            preparedStatement.setString(9, video.getPianyuan());
+            if (preparedStatement.executeUpdate() > 0) {
+                System.out.print("插入成功");
+            }
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public List<Video> selectAllDY(){
         String sql="select * from dianying";
         //连接
@@ -258,13 +280,46 @@ public class VideoDAO {
         }
         return videos;
     }
-    public static void main(String[] args){
-        String name="lmy";
-        VideoDAO videoDAO=new VideoDAO();
-        List<Video> videos=videoDAO.selectMyCollection(name);
-        for (int i=0;i<videos.size();i++){
-            System.out.println(videos.get(i).getMingcheng());
-        }
 
+    public void insertDY(Video video) {
+        String sql = "insert into dianying(mingcheng,daoyan,zhuyan,leixing,guojia,shijian,jieshao,image,pianyuan)" +
+                "values(?,?,?,?,?,?,?,?,?)";
+        insert(video,sql);
+    }
+    public void insertDSJ(Video video) {
+        String sql = "insert into dianshiju(mingcheng,daoyan,zhuyan,leixing,guojia,shijian,jieshao,image,pianyuan)" +
+                "values(?,?,?,?,?,?,?,?,?)";
+        insert(video,sql);
+    }
+    public void insertCT(Video video) {
+        String sql = "insert into cartoon(mingcheng,daoyan,zhuyan,leixing,guojia,shijian,jieshao,image,pianyuan)" +
+                "values(?,?,?,?,?,?,?,?,?)";
+        insert(video,sql);
+    }
+    public void delete(String name){
+        String sql1="DELETE FROM dianying WHERE mingcheng=?";
+        String sql2="DELETE FROM dianshiju WHERE mingcheng=?";
+        String sql3="DELETE FROM cartoon WHERE mingcheng=?";
+        Connection connection= dbhelper.getInstance();
+        try {
+            PreparedStatement preparedStatement=connection.prepareStatement(sql1);
+            preparedStatement.setString(1,name);
+            preparedStatement.executeUpdate();
+            preparedStatement=connection.prepareStatement(sql2);
+            preparedStatement.setString(1,name);
+            preparedStatement.executeUpdate();
+            preparedStatement=connection.prepareStatement(sql3);
+            preparedStatement.setString(1,name);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+        public static void main(String[] args){
+        String name="荒岛余生";
+        VideoDAO videoDAO=new VideoDAO();
+        videoDAO.delete(name);
     }
 }

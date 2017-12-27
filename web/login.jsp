@@ -38,7 +38,7 @@
 <div class="container">
     <section id="content">
         <form action="login" method="post">
-            <h1>登陆</h1>
+            <h1 style="color: white">登陆</h1>
             <div>
                 <label id="icon" ><i  class="fa fa-user" ></i></label>
                 <input type="text" placeholder="Username" name="username" id="username" />

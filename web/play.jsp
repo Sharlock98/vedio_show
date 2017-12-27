@@ -1,6 +1,7 @@
 <%@ page import="entity.Video" %>
 <%@ page import="java.util.List" %>
-<%@ page import="Service.VideoService" %><%--
+<%@ page import="Service.VideoService" %>
+<%@ page import="API.JuheDemo" %><%--
   Created by IntelliJ IDEA.
   User: ASUS
   Date: 2017/12/19
@@ -66,8 +67,8 @@
                                     for (int m=0;m<8;m++){
                                         int x=(int)(Math.random()*50);
                             %>
-                            <a href=""><li class="play-li"><img class="play-img" src="<%=movies.get(x).getImage()%>">
-                                <p class="play-p"><%=movies.get(x).getMingcheng()%></p><p class="play-p2">豆瓣:</p><p class="play-p3">6.3</p>
+                            <a href="/toinfopage?mingcheng1=<%=movies.get(x).getMingcheng()%>"><li class="play-li"><img class="play-img" src="<%=movies.get(x).getImage()%>">
+                                <p class="play-p"><%=movies.get(x).getMingcheng()%></p>
                                 <img class="play-png2" src="img/play-png.png">
                             </li></a>
                             <hr />
@@ -82,8 +83,8 @@
                                     for (int m=0;m<8;m++){
                                         int x=(int)(Math.random()*50);
                                         %>
-                            <li class="play-li"><img class="play-img" src="<%=dianshuju.get(x).getImage()%>">
-                            <p class="play-p"><%=dianshuju.get(x).getMingcheng()%></p><p class="play-p2">豆瓣:</p><p class="play-p3">6.3</p>
+                            <a href="/toinfopage?mingcheng1=<%=dianshuju.get(x).getMingcheng()%>"><li class="play-li"><img class="play-img" src="<%=dianshuju.get(x).getImage()%>">
+                                <p class="play-p"><%=dianshuju.get(x).getMingcheng()%></p>
                             <img class="play-png2" src="img/play-png.png">
                             </li>
                             <hr />
@@ -98,8 +99,8 @@
                                     for (int m=0;m<8;m++){
                                         int x=(int)(Math.random()*50);
                             %>
-                            <li class="play-li"><img class="play-img" src="<%=cartoon.get(x).getImage()%>">
-                                <p class="play-p"><%=cartoon.get(x).getMingcheng()%></p><p class="play-p2">豆瓣:</p><p class="play-p3">6.3</p>
+                                <a href="/toinfopage?mingcheng1=<%=cartoon.get(x).getMingcheng()%>"><li class="play-li"><img class="play-img" src="<%=cartoon.get(x).getImage()%>">
+                                <p class="play-p"><%=cartoon.get(x).getMingcheng()%></p>
                                 <img class="play-png2" src="img/play-png.png">
                             </li>
                             <hr />

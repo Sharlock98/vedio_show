@@ -47,4 +47,20 @@ public class VideoService {
         List<Video> list = videoDAO.selectMyCollection(user);
         return list;
     }
+    public void insertMovie(Video video){
+        VideoDAO videoDAO = new VideoDAO();
+        videoDAO.insertDY(video);
+    }
+    public void insertDSJ(Video video){
+        VideoDAO videoDAO = new VideoDAO();
+        videoDAO.insertDSJ(video);
+    }
+    public void insertCT(Video video){
+        VideoDAO videoDAO = new VideoDAO();
+        videoDAO.insertCT(video);
+    }
+    public void delete(String name){
+        VideoDAO videoDAO = new VideoDAO();
+        videoDAO.delete(name);
+    }
 }

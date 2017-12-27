@@ -2,7 +2,8 @@
 <%@ page import="entity.Video" %>
 <%@ page import="java.util.Locale" %>
 <%@ page import="Service.VideoService" %>
-<%@ page import="DAO.VideoDAO" %><%--
+<%@ page import="DAO.VideoDAO" %>
+<%@ page import="API.JuheDemo" %><%--
   Created by IntelliJ IDEA.
   User: ASUS
   Date: 2017/12/14
@@ -62,7 +63,7 @@
                             if (user==null){
                                %>
                         <p style="padding-top: 3px"><img src="img/shoucang.png" style="margin-top: 6px;width: 25px;
-                        height: 25px;">要<a href="work-login.jsp">登陆</a>才能添加到您的收藏哦~</p>
+                        height: 25px;">要<a href="login.jsp">登陆</a>才能添加到您的收藏哦~</p>
                         <%
                             }
                         %>
@@ -73,7 +74,7 @@
                         <div id="movie-sc">
                             <a >
                                 <h5 id="like" style="position:absolute;">喜欢</h5>
-                                <img style="float: left;margin-left: 30px" src="img/shoucang.png">
+                                <img style="float: left;margin-left: 43px" src="img/shoucang.png">
                             </a>
                         </div>
                         <%
@@ -85,7 +86,7 @@
                         <div id="movie-sc">
                             <a >
                                 <h5 style="position: absolute" id="islike">已喜欢</h5>
-                                <img style="float: left;margin-left: 70px" src="img/shoucang.png">
+                                <img style="float: left;margin-left: 43px" src="img/shoucang.png">
                             </a>
                         </div>
                         <%
@@ -123,7 +124,7 @@
                             </tr>
                             <tr >
                                 <td class="table-td1"><span class="info-label">评分</span></td>
-                                <td class="table-td2">豆瓣：<a rel="nofollow" class="score" target="_blank" href="/">8.3 <i class="glyphicon glyphicon-new-window"></i></a></td>
+                                <td class="table-td2">豆瓣：<a rel="nofollow" class="score"><%=request.getAttribute("rating")%><i class="glyphicon glyphicon-new-window"></i></a></td>
                             </tr>
 
                         </table>

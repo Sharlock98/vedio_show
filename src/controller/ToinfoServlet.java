@@ -1,5 +1,6 @@
 package controller;
 
+import API.JuheDemo;
 import DAO.VideoDAO;
 import Service.VideoService;
 import entity.Video;
@@ -22,14 +23,20 @@ public class ToinfoServlet extends HttpServlet {
         if (mingcheng1!=null) {
             VideoService videoService = new VideoService();
             List<Video> list = videoService.selectMovieInfo(mingcheng1);
+            String rating= JuheDemo.getRequest1(mingcheng1);
+            request.setAttribute("rating",rating);
             request.setAttribute("list", list);
         }else if (mingcheng2!=null){
             VideoService videoService = new VideoService();
             List<Video> list = videoService.selectDSJInfo(mingcheng2);
+            String rating= JuheDemo.getRequest1(mingcheng2);
+            request.setAttribute("rating",rating);
             request.setAttribute("list", list);
         }else if (mingcheng3!=null){
             VideoService videoService = new VideoService();
             List<Video> list = videoService.selectCarttonInfo(mingcheng3);
+            String rating= JuheDemo.getRequest1(mingcheng3);
+            request.setAttribute("rating",rating);
             request.setAttribute("list", list);
         }
         request.getRequestDispatcher("/movie-info.jsp").forward(request,response);

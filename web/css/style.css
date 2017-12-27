@@ -12,10 +12,8 @@ body {
 
 }
 
-.top-tp{
-
+#page-top{
     background: url(../img/background2.jpg) no-repeat 50% fixed;
-
 }
 
 html {
@@ -290,7 +288,7 @@ h1{
 
 }
 .container{
-   width: 75%;
+   width:1024px;
  }
 
 .movie-item-out-mv{
@@ -347,11 +345,11 @@ h1{
     margin: 0 auto;
 }
 h6{
-    font-size: 5px;
+    font-size: 12px;
 }
 #login-zhuce{
     text-decoration:none;
-    font-size: 5px;
+    font-size: 12px;
     color: #5bc0de;
 }
 
